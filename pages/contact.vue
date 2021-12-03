@@ -82,5 +82,8 @@ export default {
       this.message = "";
     },
   },
+  head: {
+    title: "Contact - Charles Cantin",
+  },
 };
 </script>

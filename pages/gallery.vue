@@ -85,5 +85,8 @@ export default {
       return this.images;
     },
   },
+  head: {
+    title: "Galerie - Charles Cantin",
+  },
 };
 </script>

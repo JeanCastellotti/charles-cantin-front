@@ -67,5 +67,8 @@ export default {
       ],
     };
   },
+  head: {
+    title: "Tarifs et prestations - Charles Cantin",
+  },
 };
 </script>
