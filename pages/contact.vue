@@ -8,7 +8,7 @@
       <div class="rounded-full bg-red-500 h-12 w-12 flex">
         <IconX class="h-8 w-8 text-white m-auto" />
       </div>
-      <p class="font-inter">Les informations saisies sont incorrectes.</p>
+      <p class="font-inter">{{ error }}</p>
     </div>
     <div
       v-if="formIsValid"
@@ -59,27 +59,41 @@ export default {
     return {
       email: "",
       message: "",
-      error: null,
+      error: "",
       formIsValid: false,
     };
   },
   methods: {
     submitForm() {
-      this.error = null;
+      this.error = "";
       this.formIsValid = false;
 
       const isEmailValid = EmailValidator.validate(this.email);
       console.log(isEmailValid);
 
       if ((!this.email && !isEmailValid) || !this.message) {
-        this.error = true;
+        this.error = "Les informations saisies sont incorrectes.";
         return;
       }
 
-      this.formIsValid = true;
-
-      this.email = "";
-      this.message = "";
+      fetch("https://formspree.io/f/mlezrkke", {
+        method: "POST",
+        body: {
+          email: this.email,
+          message: this.message,
+        },
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((r) => {
+          this.formIsValid = true;
+          this.email = "";
+          this.message = "";
+        })
+        .catch((e) => {
+          this.error = "Un problème est survenu lors de l'envoi.";
+        });
     },
   },
   head: {
