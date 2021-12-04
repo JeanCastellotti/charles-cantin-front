@@ -69,19 +69,23 @@ export default {
       this.formIsValid = false;
 
       const isEmailValid = EmailValidator.validate(this.email);
-      console.log(isEmailValid);
 
-      if ((!this.email && !isEmailValid) || !this.message) {
-        this.error = "Les informations saisies sont incorrectes.";
+      if (!this.email || !this.message) {
+        this.error = "Tous les champs sont obligatoires.";
+        return;
+      }
+
+      if (!isEmailValid) {
+        this.error = "L'adresse e-mail est incorrecte.";
         return;
       }
 
       fetch("https://formspree.io/f/mlezrkke", {
         method: "POST",
-        body: {
+        body: JSON.stringify({
           email: this.email,
           message: this.message,
-        },
+        }),
         headers: {
           Accept: "application/json",
         },

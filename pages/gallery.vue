@@ -59,6 +59,10 @@ export default {
           cat: "wedding",
           url: "/img/img-5.jpeg",
         },
+        {
+          cat: "couple",
+          url: "/img/img-3.jpeg",
+        },
       ],
       isModalVisible: false,
       currentImage: null,
