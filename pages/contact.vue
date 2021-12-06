@@ -28,6 +28,7 @@
           type="text"
           id="email"
           v-model.trim="email"
+          required
           class="rounded border-2 border-gray-400 p-4 w-full font-inter text-gray-400 focus:outline-none"
         />
       </div>
