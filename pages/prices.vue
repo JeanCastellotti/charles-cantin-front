@@ -35,7 +35,7 @@ export default {
   },
   async fetch() {
     const services = await fetch(
-      "https://dry-ocean-52526.herokuapp.comapi/prices"
+      "https://dry-ocean-52526.herokuapp.com/api/prices"
     ).then((r) => r.json());
 
     this.services = services.data.map((service) => {
