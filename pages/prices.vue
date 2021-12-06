@@ -8,7 +8,7 @@
         class="flex flex-col items-center transition transform hover:scale-105 hover:-rotate-1"
       >
         <h2 class="text-gray-500 font-neucha text-3xl mb-5">
-          {{ service.title }}
+          {{ service.label }}
         </h2>
         <p class="mb-5 text-gray-400 font-inter leading-loose text-center">
           {{ service.body }}
@@ -27,48 +27,25 @@
 export default {
   data() {
     return {
-      services: [
-        {
-          id: 1,
-          title: "Juste moi",
-          body: "Séance pour une personne, en extérieur ou en studio",
-          price: 130,
-        },
-        {
-          id: 2,
-          title: "Pour deux",
-          body: "Pour deux personnes, en extérieur ou en studio",
-          price: 195,
-        },
-        {
-          id: 3,
-          title: "Famille",
-          body: "Pour la famille ou les amis jusqu’à 4 personnes, en extérieur ou en studio 30 euros en supplément par personne au-delà de 4 (hormis enfant jusqu’à 2 ans)",
-          price: 220,
-        },
-        {
-          id: 4,
-          title: "Il était une fois",
-          body: "Photo de grossesse (À votre domicile, en extérieur ou en studio)",
-          price: 160,
-        },
-        {
-          id: 5,
-          title: "Mon bébé",
-          body: "Photo d’enfant jusqu’à 3 ans (photo à domicile)",
-          price: 100,
-        },
-        {
-          id: 6,
-          title: "J’immortalise l’événement",
-          body: "Prestation de mariage ou baptême sur devis",
-          price: null,
-        },
-      ],
+      services: [],
     };
   },
   head: {
     title: "Tarifs et prestations - Charles Cantin",
+  },
+  async fetch() {
+    const services = await fetch(
+      "https://dry-ocean-52526.herokuapp.comapi/prices"
+    ).then((r) => r.json());
+
+    this.services = services.data.map((service) => {
+      return {
+        id: service.id,
+        label: service.attributes.label,
+        price: service.attributes.price,
+        body: service.attributes.body,
+      };
+    });
   },
 };
 </script>
