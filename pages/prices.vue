@@ -8,10 +8,10 @@
         class="flex flex-col items-center transition transform hover:scale-105 hover:-rotate-1"
       >
         <h2 class="text-gray-500 font-neucha text-3xl mb-5">
-          {{ service.label }}
+          {{ service.title }}
         </h2>
         <p class="mb-5 text-gray-400 font-inter leading-loose text-center">
-          {{ service.body }}
+          {{ service.description }}
         </p>
         <span
           v-if="service.price"
@@ -34,16 +34,16 @@ export default {
     title: "Tarifs et prestations - Charles Cantin",
   },
   async fetch() {
-    const services = await fetch(
-      "https://dry-ocean-52526.herokuapp.com/api/prices"
-    ).then((r) => r.json());
+    const services = await fetch("http://localhost:1337/services").then((r) =>
+      r.json()
+    );
 
-    this.services = services.data.map((service) => {
+    this.services = services.map((service) => {
       return {
         id: service.id,
-        label: service.attributes.label,
-        price: service.attributes.price,
-        body: service.attributes.body,
+        title: service.title,
+        price: service.price,
+        description: service.description,
       };
     });
   },

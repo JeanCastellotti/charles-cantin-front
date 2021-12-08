@@ -1,10 +1,7 @@
 <template>
   <div>
     <BaseModal v-if="isModalVisible" @close-modal="closeModal" class="h-full">
-      <img
-        :src="`${apiUrl}${currentImage}`"
-        class="max-h-full object-cover rounded"
-      />
+      <img :src="currentImage" class="max-h-full object-cover rounded" />
     </BaseModal>
     <div class="flex justify-between items-center mb-5">
       <h1 class="font-neucha text-5xl text-gray-800">Galerie</h1>
@@ -28,7 +25,7 @@
     >
       <img
         v-for="image in filteredImages"
-        :src="`${apiUrl}${image.url.medium}`"
+        :src="image.url.medium"
         :alt="image.category"
         :key="image.id"
         @click="showModal(image.url.large)"
@@ -47,7 +44,7 @@ export default {
       isModalVisible: false,
       currentImage: null,
       currentCategory: "all",
-      apiUrl: "https://dry-ocean-52526.herokuapp.com",
+      strapi: "http://localhost:1337",
     };
   },
   methods: {
@@ -74,26 +71,24 @@ export default {
     title: "Galerie - Charles Cantin",
   },
   async fetch() {
-    const photos = await fetch(
-      `${this.apiUrl}/api/photos?populate=image,category`
-    ).then((r) => r.json());
+    const photos = await fetch(`${this.strapi}/photos`).then((r) => r.json());
 
-    this.categories = photos.data.map((photo) => {
+    this.categories = photos.map((photo) => {
       return {
-        id: photo.attributes.category.id,
-        label: photo.attributes.category.data.attributes.label,
-        slug: photo.attributes.category.data.attributes.slug,
+        id: photo.category.id,
+        label: photo.category.label,
+        slug: photo.category.slug,
       };
     });
 
-    this.images = photos.data.map((photo) => {
+    this.images = photos.map((photo) => {
       return {
         id: photo.id,
         url: {
-          medium: photo.attributes.image.data.attributes.formats.medium.url,
-          large: photo.attributes.image.data.attributes.formats.large.url,
+          medium: photo.image.formats.medium.url,
+          large: photo.image.formats.large.url,
         },
-        category: photo.attributes.category.data.attributes.slug,
+        category: photo.category.slug,
       };
     });
   },

@@ -25,7 +25,7 @@
           >Adresse e-mail</label
         >
         <input
-          type="text"
+          type="email"
           id="email"
           v-model.trim="email"
           required
