@@ -35,7 +35,9 @@ export default {
     title: "Tarifs et prestations - Charles Cantin",
   },
   async fetch() {
-    const services = await fetch(`${strapi}/services`).then((r) => r.json());
+    const services = await fetch(`${this.strapi}/services`).then((r) =>
+      r.json()
+    );
 
     this.services = services.map((service) => {
       return {
