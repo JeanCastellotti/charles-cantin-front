@@ -28,15 +28,14 @@ export default {
   data() {
     return {
       services: [],
+      strapi: "https://dry-ocean-52526.herokuapp.com",
     };
   },
   head: {
     title: "Tarifs et prestations - Charles Cantin",
   },
   async fetch() {
-    const services = await fetch("http://localhost:1337/services").then((r) =>
-      r.json()
-    );
+    const services = await fetch(`${strapi}/services`).then((r) => r.json());
 
     this.services = services.map((service) => {
       return {

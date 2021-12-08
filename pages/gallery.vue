@@ -44,7 +44,7 @@ export default {
       isModalVisible: false,
       currentImage: null,
       currentCategory: "all",
-      strapi: "http://localhost:1337",
+      strapi: "https://dry-ocean-52526.herokuapp.com",
     };
   },
   methods: {
