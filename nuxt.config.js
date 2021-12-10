@@ -15,7 +15,7 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quia ipsum tempora. Laborum, illo voluptas!",
+          "Passionné par la photographie, je propose mes services pour immortaliser tous types d'événements",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
