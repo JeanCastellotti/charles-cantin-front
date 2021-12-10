@@ -67,7 +67,7 @@ export default {
   methods: {
     submitForm() {
       this.error = "";
-      this.formIsValid = false;
+      this.formSubmitted = false;
 
       const isEmailValid = EmailValidator.validate(this.email);
 
@@ -91,12 +91,12 @@ export default {
           Accept: "application/json",
         },
       })
-        .then((r) => {
-          this.formIsValid = true;
+        .then(() => {
+          this.formSubmitted = true;
           this.email = "";
           this.message = "";
         })
-        .catch((e) => {
+        .catch(() => {
           this.error = "Un problème est survenu lors de l'envoi.";
         });
     },

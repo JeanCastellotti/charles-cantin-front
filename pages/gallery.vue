@@ -69,6 +69,13 @@ export default {
   },
   head: {
     title: "Galerie - Charles Cantin",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Découvrez toutes mes réalisations classées par catégorie.",
+      },
+    ],
   },
   async fetch() {
     const photos = await fetch(`${this.strapi}/photos`).then((r) => r.json());
