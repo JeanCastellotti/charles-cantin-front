@@ -5,26 +5,30 @@
         to="/"
         class="font-neucha text-gray-300 text-4xl"
         @click.native="closeMenu"
-        >Accueil</NuxtLink
       >
+        Accueil
+      </NuxtLink>
       <NuxtLink
         to="/gallery"
         class="font-neucha text-gray-300 text-4xl"
         @click.native="closeMenu"
-        >Galerie</NuxtLink
       >
+        Galerie
+      </NuxtLink>
       <NuxtLink
         to="/services"
         class="font-neucha text-gray-300 text-4xl"
         @click.native="closeMenu"
-        >Tarifs</NuxtLink
       >
+        Tarifs
+      </NuxtLink>
       <NuxtLink
         to="/contact"
         class="font-neucha text-gray-300 text-4xl"
         @click.native="closeMenu"
-        >Contact</NuxtLink
       >
+        Contact
+      </NuxtLink>
     </div>
     <IconArrowNarrowLeft
       class="absolute right-5 bottom-5 h-8 w-8 m-auto text-gray-400"
