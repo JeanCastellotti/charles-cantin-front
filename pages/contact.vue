@@ -21,9 +21,9 @@
     </div>
     <form @submit.prevent="submitForm" autocomplete="off">
       <div class="mb-3">
-        <label for="email" class="mb-1 block text-gray-500 font-inter text-lg"
-          >Adresse e-mail</label
-        >
+        <label for="email" class="mb-1 block text-gray-500 font-inter text-lg">
+          Adresse e-mail
+        </label>
         <input
           type="email"
           id="email"
@@ -33,9 +33,12 @@
         />
       </div>
       <div class="mb-3">
-        <label for="message" class="mb-1 block text-gray-500 font-inter text-lg"
-          >Message</label
+        <label
+          for="message"
+          class="mb-1 block text-gray-500 font-inter text-lg"
         >
+          Message
+        </label>
         <textarea
           id="message"
           v-model.trim="message"

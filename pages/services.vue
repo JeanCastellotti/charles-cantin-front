@@ -16,8 +16,9 @@
         <span
           v-if="service.price"
           class="self-stretch text-center pt-5 border-t border-gray-200 font-inter font-thin text-5xl text-gray-600"
-          >{{ service.price }}€</span
         >
+          {{ service.price }}€
+        </span>
       </BaseCard>
     </div>
   </div>
