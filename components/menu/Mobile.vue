@@ -39,11 +39,11 @@
 
 <script>
 export default {
-  emits: ["close-menu"],
+  emits: ['close-menu'],
   methods: {
     closeMenu() {
-      this.$emit("close-menu");
+      this.$emit('close-menu')
     },
   },
-};
+}
 </script>

@@ -32,35 +32,35 @@ export default {
     theme: {
       type: String,
       required: false,
-      default: "light",
+      default: 'light',
     },
   },
   data() {
     return {
       isMenuMobileVisible: false,
-    };
+    }
   },
   methods: {
     showMenuMobile() {
-      this.isMenuMobileVisible = true;
+      this.isMenuMobileVisible = true
     },
     closeMenuMobile() {
-      this.isMenuMobileVisible = false;
+      this.isMenuMobileVisible = false
     },
   },
   computed: {
     iconStyle() {
-      if (this.theme === "dark") {
-        return "text-gray-200";
+      if (this.theme === 'dark') {
+        return 'text-gray-200'
       }
 
-      return ["text-gray-500"];
+      return ['text-gray-500']
     },
     headerStyle() {
-      if (this.theme === "light") {
-        return ["pb-5", "mb-7", "border-b", "border-gray-200"];
+      if (this.theme === 'light') {
+        return ['pb-5', 'mb-7', 'border-b', 'border-gray-200']
       }
     },
   },
-};
+}
 </script>

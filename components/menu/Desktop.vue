@@ -41,6 +41,6 @@
 
 <script>
 export default {
-  props: ["iconStyle"],
-};
+  props: ['iconStyle'],
+}
 </script>
