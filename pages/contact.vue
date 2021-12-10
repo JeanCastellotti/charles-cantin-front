@@ -56,56 +56,56 @@
 </template>
 
 <script>
-import * as EmailValidator from "email-validator";
+import * as EmailValidator from 'email-validator'
 
 export default {
   data() {
     return {
-      email: "",
-      message: "",
-      error: "",
+      email: '',
+      message: '',
+      error: '',
       formIsValid: false,
-    };
+    }
   },
   methods: {
     submitForm() {
-      this.error = "";
-      this.formSubmitted = false;
+      this.error = ''
+      this.formSubmitted = false
 
-      const isEmailValid = EmailValidator.validate(this.email);
+      const isEmailValid = EmailValidator.validate(this.email)
 
       if (!this.email || !this.message) {
-        this.error = "Tous les champs sont obligatoires.";
-        return;
+        this.error = 'Tous les champs sont obligatoires.'
+        return
       }
 
       if (!isEmailValid) {
-        this.error = "L'adresse e-mail est incorrecte.";
-        return;
+        this.error = "L'adresse e-mail est incorrecte."
+        return
       }
 
-      fetch("https://formspree.io/f/mlezrkke", {
-        method: "POST",
+      fetch('https://formspree.io/f/mlezrkke', {
+        method: 'POST',
         body: JSON.stringify({
           email: this.email,
           message: this.message,
         }),
         headers: {
-          Accept: "application/json",
+          Accept: 'application/json',
         },
       })
         .then(() => {
-          this.formSubmitted = true;
-          this.email = "";
-          this.message = "";
+          this.formSubmitted = true
+          this.email = ''
+          this.message = ''
         })
         .catch(() => {
-          this.error = "Un problème est survenu lors de l'envoi.";
-        });
+          this.error = "Un problème est survenu lors de l'envoi."
+        })
     },
   },
   head: {
-    title: "Contact - Charles Cantin",
+    title: 'Contact - Charles Cantin',
   },
-};
+}
 </script>

@@ -43,50 +43,50 @@ export default {
       categories: [],
       isModalVisible: false,
       currentImage: null,
-      currentCategory: "all",
-      strapi: "https://blooming-crag-03388.herokuapp.com",
-    };
+      currentCategory: 'all',
+      strapi: 'https://blooming-crag-03388.herokuapp.com',
+    }
   },
   methods: {
     showModal(image) {
-      this.isModalVisible = true;
-      this.currentImage = image;
+      this.isModalVisible = true
+      this.currentImage = image
     },
     closeModal() {
-      this.isModalVisible = false;
-      this.currentImage = null;
+      this.isModalVisible = false
+      this.currentImage = null
     },
   },
   computed: {
     filteredImages() {
-      if (this.currentCategory !== "all")
+      if (this.currentCategory !== 'all')
         return this.images.filter(
           (image) => image.category === this.currentCategory
-        );
+        )
 
-      return this.images;
+      return this.images
     },
   },
   head: {
-    title: "Galerie - Charles Cantin",
+    title: 'Galerie - Charles Cantin',
     meta: [
       {
-        hid: "description",
-        name: "description",
-        content: "Découvrez toutes mes réalisations classées par catégorie.",
+        hid: 'description',
+        name: 'description',
+        content: 'Découvrez toutes mes réalisations classées par catégorie.',
       },
     ],
   },
   async fetch() {
-    const photos = await fetch(`${this.strapi}/photos`).then((r) => r.json());
+    const photos = await fetch(`${this.strapi}/photos`).then((r) => r.json())
 
     this.categories = photos.map((photo) => {
       return {
         id: photo.category.id,
         label: photo.category.label,
         slug: photo.category.slug,
-      };
-    });
+      }
+    })
 
     this.images = photos.map((photo) => {
       return {
@@ -96,8 +96,8 @@ export default {
           large: photo.image.formats.large.url,
         },
         category: photo.category.slug,
-      };
-    });
+      }
+    })
   },
-};
+}
 </script>
