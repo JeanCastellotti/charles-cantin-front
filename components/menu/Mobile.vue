@@ -14,7 +14,7 @@
         >Galerie</NuxtLink
       >
       <NuxtLink
-        to="/prices"
+        to="/services"
         class="font-neucha text-gray-300 text-4xl"
         @click.native="closeMenu"
         >Tarifs</NuxtLink

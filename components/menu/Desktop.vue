@@ -19,7 +19,7 @@
       >
     </NuxtLink>
     <NuxtLink
-      to="/prices"
+      to="/services"
       class="flex items-center space-x-2 transition transform hover:scale-105"
     >
       <IconTag class="h-5 w-5" :class="iconStyle" />
