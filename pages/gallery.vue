@@ -49,6 +49,7 @@ export default {
   },
   methods: {
     showModal(image) {
+      if (window.innerWidth <= 450) return
       this.isModalVisible = true
       this.currentImage = image
     },
