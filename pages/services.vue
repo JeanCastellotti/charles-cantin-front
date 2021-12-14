@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       services: [],
-      strapi: 'https://blooming-crag-03388.herokuapp.com/',
+      strapi: 'https://blooming-crag-03388.herokuapp.com',
     }
   },
   head: {

@@ -44,7 +44,7 @@ export default {
       isModalVisible: false,
       currentImage: null,
       currentCategory: 'all',
-      strapi: 'https://blooming-crag-03388.herokuapp.com/',
+      strapi: 'https://blooming-crag-03388.herokuapp.com',
     }
   },
   methods: {
