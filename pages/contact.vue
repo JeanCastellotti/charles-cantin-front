@@ -11,7 +11,7 @@
       <p class="font-inter">{{ error }}</p>
     </div>
     <div
-      v-if="formIsValid"
+      v-if="formSubmitted"
       class="rounded bg-green-400 text-white flex items-center justify-center p-5 space-x-5 mb-5"
     >
       <div class="rounded-full bg-green-500 h-12 w-12 flex">
@@ -64,7 +64,7 @@ export default {
       email: '',
       message: '',
       error: '',
-      formIsValid: false,
+      formSubmitted: false,
     }
   },
   methods: {
