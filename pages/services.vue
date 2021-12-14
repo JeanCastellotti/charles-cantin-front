@@ -29,14 +29,13 @@ export default {
   data() {
     return {
       services: [],
-      strapi: 'https://blooming-crag-03388.herokuapp.com',
     }
   },
   head: {
     title: 'Tarifs et prestations - Charles Cantin',
   },
   async fetch() {
-    const services = await fetch(`${this.strapi}/services`).then((r) =>
+    const services = await fetch(`${process.env.apiUrl}/services`).then((r) =>
       r.json()
     )
 

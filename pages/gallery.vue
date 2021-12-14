@@ -44,7 +44,6 @@ export default {
       isModalVisible: false,
       currentImage: null,
       currentCategory: 'all',
-      strapi: 'https://blooming-crag-03388.herokuapp.com',
     }
   },
   methods: {
@@ -79,7 +78,9 @@ export default {
     ],
   },
   async fetch() {
-    const photos = await fetch(`${this.strapi}/photos`).then((r) => r.json())
+    const photos = await fetch(`${process.env.apiUrl}/photos`).then((r) =>
+      r.json()
+    )
 
     this.categories = photos
       .map((photo) => {
@@ -99,10 +100,10 @@ export default {
         url: {
           medium: photo.image.formats.medium.url.startsWith('http')
             ? photo.image.formats.medium.url
-            : this.strapi + photo.image.formats.medium.url,
+            : process.env.apiUrl + photo.image.formats.medium.url,
           large: photo.image.formats.large.url.startsWith('http')
             ? photo.image.formats.large.url
-            : this.strapi + photo.image.formats.large.url,
+            : process.env.apiUrl + photo.image.formats.large.url,
         },
         category: photo.category.slug,
       }
