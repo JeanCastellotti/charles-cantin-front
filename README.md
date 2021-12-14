@@ -11,10 +11,10 @@ Les wireframes, les mockups et la charte graphique se situent dans le répertoir
 $ git clone https://github.com/JeanDevFR/charles-cantin-front.git
 
 # Récupérer le CMS
-$ git clone https://github.com/JeanDevFR/charles-cantin-back.git
+$ git clone https://github.com/JeanDevFR/charles-cantin-cms.git
 
 # Se rendre dans le répertoire du CMS
-$ cd charles-cantin-back
+$ cd charles-cantin-cms
 $ npm install
 
 # Lancer le CMS (http://localhost:1337)
