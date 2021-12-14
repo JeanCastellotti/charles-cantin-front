@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       services: [],
-      strapi: 'https://blooming-crag-03388.herokuapp.com',
-    };
+      strapi: 'https://blooming-crag-03388.herokuapp.com/',
+    }
   },
   head: {
     title: 'Tarifs et prestations - Charles Cantin',
@@ -38,7 +38,7 @@ export default {
   async fetch() {
     const services = await fetch(`${this.strapi}/services`).then((r) =>
       r.json()
-    );
+    )
 
     this.services = services.map((service) => {
       return {
@@ -46,8 +46,8 @@ export default {
         title: service.title,
         price: service.price,
         description: service.description,
-      };
-    });
+      }
+    })
   },
-};
+}
 </script>
